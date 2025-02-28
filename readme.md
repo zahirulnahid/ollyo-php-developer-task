@@ -26,7 +26,7 @@ Create a simple checkout system with PayPal payment gateway integration(Used Str
 
 
 ## Stripe Credentials Test Credit Card for Payments
-You can use the following test card details to simulate a payment in **Stripe Test Mode**:
+You can use the following test card details to simulate a payment in **Stripe**:
 
 - **Card Number:** `4242 4242 4242 4242`
 - **Expiry Date:** Any future date (e.g., `12/34`)
