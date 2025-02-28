@@ -22,3 +22,16 @@ Create a simple checkout system with PayPal payment gateway integration(Used Str
 - **Transaction Handling**: Payment verification, validation, and confirmation.  
 - **OOP-Based Architecture**: Organized using controllers and handlers.  
 - **Success & Failure Pages**: Users receive appropriate feedback after transactions.
+
+## Screenshots
+### Checkout Page
+![Checkout](screenshots/screenshot1.png)
+
+### Payment Success
+![Success](screenshots/screenshot2.png)
+
+### Payment Failure
+![Failure](screenshots/screenshot3.png)
+
+### Confirmation Page
+![Confirmation](screenshots/screenshot4.png)
