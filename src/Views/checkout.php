@@ -4,7 +4,12 @@ $address = $data['address'];
 $shippingCost = $data['shipping_cost'];
 
 // @todo: Calculate the subtotal from the products array
-$subtotal = 0;
+$subtotal = 0 ;
+foreach($data['products'] as $product){
+    $subtotal+=$product['price']*$product['qty'];
+}
+
+
 $total = $subtotal + $shippingCost;
 ?>
 
@@ -26,7 +31,7 @@ $total = $subtotal + $shippingCost;
                 </svg>
             </a>
         </div>
-        <form method="post" action="/checkout" class="space-y-8">
+        <form method="POST" action="./checkout" class="space-y-8">
             <div class="grid grid-cols-[auto_350px] gap-8">
                 <div class="space-y-4">
                 <?php foreach ($products as $product) : ?>
@@ -58,8 +63,10 @@ $total = $subtotal + $shippingCost;
                     <div class="font-semibold flex items-center justify-between">
                         <p>Total</p>
                         <p>$<?php echo $total; ?></p>
+                        <input type='hidden' name='total' value='<?php echo $total*100; ?>'>
                     </div>
                     <button class="inline-flex w-full items-center justify-center gap-2 text-sm font-medium whitespace-nowrap rounded-md transition-colors ring-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-gray-800 text-white hover:bg-gray-700/90 h-9 px-4 py-2">Place Order</button>
+               <a href='subscription'>Add subscription</a>
                 </div>
             </div>
             <div class="grid grid-cols-[auto_calc(350px_+2rem)]">
@@ -68,25 +75,25 @@ $total = $subtotal + $shippingCost;
                     <div class="space-y-4 mt-4">
                         <div class="space-y-1 flex flex-col">
                             <label class="text-sm text-gray-800 font-medium" for="name">Full Name</label>
-                            <input type="text" name="name" placeholder="Enter your full name" value="<?php echo $address['name']; ?>" id="name" class="bg-white px-2 text-sm rounded-md border border-gray-300 h-10 placeholder:text-sm placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-700 focus-visible:ring-offset-2">
+                            <input type="text" name="name" placeholder="Enter your full name" value="<?php echo $address['name']; ?>" id="name" class="bg-white px-2 text-sm rounded-md border border-gray-300 h-10 placeholder:text-sm placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-700 focus-visible:ring-offset-2" required>
                         </div>
                         <div class="space-y-1 flex flex-col">
                             <label class="text-sm text-gray-800 font-medium" for="name">Email</label>
-                            <input type="email" name="email" placeholder="Enter your email" value="<?php echo $address['email']; ?>" id="email" class="bg-white px-2 text-sm rounded-md border border-gray-300 h-10 placeholder:text-sm placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-700 focus-visible:ring-offset-2">
+                            <input type="email" name="email" placeholder="Enter your email" value="<?php echo $address['email']; ?>" id="email" class="bg-white px-2 text-sm rounded-md border border-gray-300 h-10 placeholder:text-sm placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-700 focus-visible:ring-offset-2" required>
                         </div>
                         <div class="space-y-1 flex flex-col">
                             <label class="text-sm text-gray-800 font-medium" for="address">Address</label>
-                            <input type="text" name="address" placeholder="Enter your address" id="address" value="<?php echo $address['address']; ?>" class="bg-white px-2 text-sm rounded-md border border-gray-300 h-10 placeholder:text-sm placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-700 focus-visible:ring-offset-2">
+                            <input type="text" name="address" placeholder="Enter your address" id="address" value="<?php echo $address['address']; ?>" class="bg-white px-2 text-sm rounded-md border border-gray-300 h-10 placeholder:text-sm placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-700 focus-visible:ring-offset-2" required>
                         </div>
             
                         <div class="grid grid-cols-2 gap-4">
                             <div class="space-y-1 flex flex-col">
                                 <label class="text-sm text-gray-800 font-medium" for="city">City</label>
-                                <input type="text" name="city" placeholder="Enter your city" id="city" value="<?php echo $address['city']; ?>" class="bg-white px-2 text-sm rounded-md border border-gray-300 h-10 placeholder:text-sm placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-700 focus-visible:ring-offset-2">
+                                <input type="text" name="city" placeholder="Enter your city" id="city" value="<?php echo $address['city']; ?>" class="bg-white px-2 text-sm rounded-md border border-gray-300 h-10 placeholder:text-sm placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-700 focus-visible:ring-offset-2" required>
                             </div>
                             <div class="space-y-1 flex flex-col">
                                 <label class="text-sm text-gray-800 font-medium" for="postal-code">Postal Code</label>
-                                <input type="text" name="post_code" placeholder="Enter postal code" id="postal-code" value="<?php echo $address['post_code']; ?>" class="bg-white px-2 text-sm rounded-md border border-gray-300 h-10 placeholder:text-sm placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-700 focus-visible:ring-offset-2">
+                                <input type="text" name="post_code" placeholder="Enter postal code" id="postal-code" value="<?php echo $address['post_code']; ?>" class="bg-white px-2 text-sm rounded-md border border-gray-300 h-10 placeholder:text-sm placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-700 focus-visible:ring-offset-2" required>
                             </div>
                         </div>
                     </div>

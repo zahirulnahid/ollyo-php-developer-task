@@ -47,16 +47,29 @@ $data = [
         'post_code' => 'NW16XE',
     ]
 ];
+$URL = $_GET['url']??'app';
+$URL = explode("/",$URL);
 
-Routes::get('/', function () {
-    return view('app', []);
-});
-
-Routes::get('/checkout', function () use ($data) {
-    return view('checkout', $data);
-});
-
+if($URL[0]=='app')
+return view('app', []);
+// Routes::get('/', function () {
+//     return view('app', []);
+// });
+if ($URL[0] == 'checkout') {
+    if (isset($_POST['email'])) {
+        return view('confirmation', $data);
+    } else {
+        return view('checkout', $data);
+    }
+}
+if($URL[0]=='success')
+return view('success', $data);//passing data for validating
+if($URL[0]=='failure')
+return view('failure', []);
+if($URL[0]=='subscription')
+return view('subscription', $data);
 Routes::post('/checkout', function ($request) {
+    echo "hi";
     // @todo: Implement PayPal payment gateway integration here
     // 1. Initialize PayPal API client with credentials
     // 2. Create payment with order details from $data
@@ -70,6 +83,9 @@ Routes::post('/checkout', function ($request) {
 
 // Register thank you & payment failed routes with corresponding views here.
 
+// Create a singleton instance of Routes and dispatch requests
 $route = Routes::getInstance();
 $route->dispatch();
+
+
 ?>

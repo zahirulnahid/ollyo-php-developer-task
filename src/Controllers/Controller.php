@@ -1,7 +1,17 @@
 <?php
 namespace Ollyo\Task\Controllers;
 
-class Controller
-{
-    // @todo: add your code here if needed.
+class Controller{
+    public function view($name){
+        $filename="Views/".$name.".php";
+    
+        if(file_exists($filename)){
+            require $filename;
+        }else{
+            $filename="Views/404.php";
+            require $filename;
+        }
+    }
 }
+
+?>

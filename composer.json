@@ -12,5 +12,8 @@
             "email": "hello@ollyo.com"
         }
     ],
-    "require": {}
+    "require": {
+        "paypal/rest-api-sdk-php": "*",
+        "stripe/stripe-php": "^16.6"
+    }
 }

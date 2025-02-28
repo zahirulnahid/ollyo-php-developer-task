@@ -1,4 +1,6 @@
 <?php
+require 'src/Controllers/App.php';
+$app = new App;
 
 if (!function_exists('baseUrl')) {
     /**
@@ -49,6 +51,8 @@ if (!function_exists('view')) {
      * @return string The rendered view content as a string
      */
     function view(string $name, array $data) {
+        global $app;
+        $app->loadController($name,$data);
         // @todo: Complete the view function so that we could render a view with data.
         // e.g. view('checkout', $data);
     }
