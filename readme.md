@@ -23,16 +23,34 @@ Create a simple checkout system with PayPal payment gateway integration(Used Str
 - **OOP-Based Architecture**: Organized using controllers and handlers.  
 - **Success & Failure Pages**: Users receive appropriate feedback after transactions.
 
+
+
+## Stripe Credentials Test Credit Card for Payments
+You can use the following test card details to simulate a payment in **Stripe Test Mode**:
+
+- **Card Number:** `4242 4242 4242 4242`
+- **Expiry Date:** Any future date (e.g., `12/34`)
+- **CVC:** Any 3-digit number (e.g., `123`)
+- **ZIP Code:** Any 5-digit number (e.g., `10001`)
+
+
 ## Screenshots
+
+### Landing Page
+![Failure](screenshots/screenshot2.png)
 ### Checkout Page
 ![Checkout](screenshots/screenshot3.png)
 
 ### Confirmation Page
-![Confirmation](screenshots/screenshot2.png)
+![Confirmation](screenshots/screenshot5.png)
+
 ### Payment Success
 ![Success](screenshots/screenshot1.png)
 
 ### Payment Failure
-![Failure](screenshots/screenshot1.png)
+![Failure](screenshots/screenshot6.png)
+
+### Subscription Page
+![Failure](screenshots/screenshot4.png)
 
 
