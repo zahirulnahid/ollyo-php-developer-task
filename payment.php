@@ -1,7 +1,7 @@
 <?php
 require 'vendor/autoload.php'; // Include Stripe PHP SDK
-
-\Stripe\Stripe::setApiKey('sk_test_51QxNVABM0cOMPXGcPSRCELFFWtZmHIzodcoGtyaKK9mvlB0KEbgcniQIoll8uqJ70vqcKQ2E3Ne8zQiMnDNQSW9O00bVFtGruM'); // Your secret key
+require 'resources/config.php';
+\Stripe\Stripe::setApiKey(STRIPE_SECRET_KEY); // Your secret key
 
 // Get JSON input
 $input = json_decode(file_get_contents("php://input"), true);

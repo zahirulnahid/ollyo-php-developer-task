@@ -1,7 +1,7 @@
 <?php
 require_once 'vendor/autoload.php';
-
-\Stripe\Stripe::setApiKey('sk_test_51QxNVABM0cOMPXGcPSRCELFFWtZmHIzodcoGtyaKK9mvlB0KEbgcniQIoll8uqJ70vqcKQ2E3Ne8zQiMnDNQSW9O00bVFtGruM');
+require 'resources/config.php';
+\Stripe\Stripe::setApiKey('STRIPE_SECRET_KEY');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $token = $_POST['stripeToken'];

@@ -1,8 +1,8 @@
 
 <?php
 require 'vendor/autoload.php'; // Load Stripe PHP SDK
-
-\Stripe\Stripe::setApiKey('sk_test_51QxNVABM0cOMPXGcPSRCELFFWtZmHIzodcoGtyaKK9mvlB0KEbgcniQIoll8uqJ70vqcKQ2E3Ne8zQiMnDNQSW9O00bVFtGruM'); // Replace with your Stripe Secret Key
+require 'resources/config.php';
+\Stripe\Stripe::setApiKey(STRIPE_SECRET_KEY); // Replace with your Stripe Secret Key
 
 $input = json_decode(file_get_contents("php://input"), true);
 $token = $input['stripeToken'] ?? null;
