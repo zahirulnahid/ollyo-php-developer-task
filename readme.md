@@ -25,13 +25,13 @@ Create a simple checkout system with PayPal payment gateway integration(Used Str
 
 ## Screenshots
 ### Checkout Page
-![Checkout](screenshots/screenshot1.png)
+![Checkout](screenshots/screenshot3.png)
 
 ### Payment Success
 ![Success](screenshots/screenshot2.png)
 
 ### Payment Failure
-![Failure](screenshots/screenshot3.png)
+![Failure](screenshots/screenshot1.png)
 
 ### Confirmation Page
 ![Confirmation](screenshots/screenshot4.png)
